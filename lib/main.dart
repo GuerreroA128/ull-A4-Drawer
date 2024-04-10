@@ -1,43 +1,48 @@
+import 'package:guerrerodrawerv2/movies.dart';
+import 'package:guerrerodrawerv2/profile.dart';
+import 'package:guerrerodrawerv2/pagina5.dart';
+import 'package:guerrerodrawerv2/pagina6.dart';
+import 'package:guerrerodrawerv2/pagina7.dart';
+import 'package:guerrerodrawerv2/pagina8.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+import 'contact.dart';
+import 'inicio.dart';
+
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  static const String home = Inicio.routeName;
+  static const String profile = Profile.routeName;
+  static const String movies = Movies.routeName;
+  static const String contacts = Contact.routeName;
+  static const String pagina5 = Paginacinco.routeName;
+  static const String pagina6 = PaginaSeis.routeName;
+  static const String pagina7 = PaginaSiete.routeName;
+  static const String pagina8 = PaginaOcho.routeName;
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
+      title: 'Ejemplo Drawer Menu',
       theme: ThemeData(
-        // useMaterial3: false,
         primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
-        ),
-      ),
+      routes: {
+        home: (context) => Inicio(),
+        profile: (context) => Profile(),
+        movies: (context) => Movies(),
+        contacts: (context) => Contact(),
+        pagina5: (context) => Paginacinco(),
+        pagina6: (context) => PaginaSeis(),
+        pagina7: (context) => PaginaSiete(),
+        pagina8: (context) => PaginaOcho(),
+      },
+      home: Inicio(),
     );
   }
 }
